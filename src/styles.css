@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Smooth transition for the card and form elements */
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);  /* Elevates the card on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+input.form-control, .btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Input and Button Hover Effects */
+input.form-control:hover, .btn:hover {
+  transform: scale(1.05);  /* Slightly enlarge input and button on hover */
+  background-color: #e9ecef; /* Lighter background color on hover */
+}
+
+input.form-control:focus, .btn:focus {
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.5); /* Green shadow for focus effect */
+}
+
+/* Animation for the heading */
+h3 {
+  animation: fadeIn 1.5s ease-in;
+}
+
+/* Fade-in animation for the heading */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* src/styles.css */
+
+/* Style the footer to ensure it is always at the bottom */
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Hover effect for navbar links */
+.navbar-nav .nav-item .nav-link:hover {
+  color: #007bff;  /* Light blue on hover */
+}
+
+/* Sticky navigation bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;  /* Keeps the navbar above other content */
+}
