@@ -1,59 +1,55 @@
-# PersonalFinanceTracker
+## Personal Finance Tracker
+Personal Finance Tracker is a web application built using Angular and Bootstrap to help individuals manage and track their finances. The application allows users to input their income and expenses, track their savings goals, and view their financial status in real time.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+## Features
+Dashboard: Displays total income, total expenses, and net balance.
 
-## Development server
+Income Tracking: Add income with categories and track the total income.
 
-To start a local development server, run:
+Expense Tracking: Add expenses with categories and track the total expenses.
 
-```bash
+Savings Goal: Set a savings target with a deadline and track progress.
+
+Responsive Design: Built with Bootstrap for a mobile-friendly experience.
+
+Real-Time Updates: All data is updated dynamically to reflect changes instantly.
+
+
+
+
+
+## Technologies Used
+Frontend:
+
+Angular: Framework used to build the dynamic, single-page application.
+
+Bootstrap: For responsive layout and UI components.
+
+
+
+## Installation
+To run this project locally, follow these steps:
+
+Clone the repository:
+
+
+git clone https://github.com/yourusername/personal-finance-tracker.git
+Navigate to the project directory:
+
+
+cd personal-finance-tracker
+Install the dependencies:
+
+
+npm install
+Run the application:
+
+
 ng serve
-```
+Open your browser and go to http://localhost:4200 to view the app.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Contributing
+Contributions are always welcome! If you find a bug or have suggestions for improvement, feel free to fork the repository, make your changes, and submit a pull request.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
