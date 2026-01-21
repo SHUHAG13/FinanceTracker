@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TransactionService } from '../../service/transaction';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Transaction } from '../../models/transaction.model';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-income',
@@ -12,18 +14,25 @@ import { CommonModule } from '@angular/common';
 export class Income {
   amount: number = 0;
   category: string = '';
-  constructor(private transactionService:TransactionService) { }
-  onSubmit() {
-    const newTransaction = {
-      id: Math.random(), // Random ID for simplicity
-      type: "income" as "income",
-      amount: this.amount,
-      category: this.category,
-      date: new Date()
-    };
-    this.transactionService.addTransaction(newTransaction);
-    this.amount = 0; // Reset the form
-    this.category = '';
+  
+  constructor(private transactionService:TransactionService,private router: Router) { 
+    
   }
+  onSubmit() {
+  const newTransaction: Transaction = {
+    id: 0, // backend will generate
+    type: 'income',
+    amount: this.amount,
+    category: this.category,
+    date: new Date()
+  };
+
+  this.transactionService.addTransaction(newTransaction).subscribe(() => {
+    this.amount = 0;
+    this.category = '';
+    this.router.navigate(['/dashboard']);
+  });
+}
+    
 
 }

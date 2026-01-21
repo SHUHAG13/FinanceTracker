@@ -1,40 +1,40 @@
 // src/app/services/transaction.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Transaction, Goal } from '../models/transaction.model';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TransactionService {
-  private transactions: Transaction[] = [];
-  private goals: Goal[] = [];
+   private apiUrl = environment.apiUrl;
 
-  private transactionsSubject = new BehaviorSubject<Transaction[]>(this.transactions);
-  transactions$ = this.transactionsSubject.asObservable();
+  constructor(private http: HttpClient) {}
 
-  private goalsSubject = new BehaviorSubject<Goal[]>(this.goals);
-  goals$ = this.goalsSubject.asObservable();
-
-  addTransaction(transaction: Transaction) {
-    this.transactions.push(transaction);
-    this.transactionsSubject.next(this.transactions);
+   getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.apiUrl}/transactions`);
   }
 
-  addGoal(goal: Goal) {
-    this.goals.push(goal);
-    this.goalsSubject.next(this.goals);
+  addTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(`${this.apiUrl}/transactions`, transaction);
   }
 
-  getTotalIncome(): number {
-    return this.transactions
-      .filter(tx => tx.type === 'income')
-      .reduce((sum, tx) => sum + tx.amount, 0);
+  getDashboardSummary(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/transactions/dashboard`);
   }
 
-  getTotalExpenses(): number {
-    return this.transactions
-      .filter(tx => tx.type === 'expense')
-      .reduce((sum, tx) => sum + tx.amount, 0);
+  getGoals(): Observable<Goal[]> {
+    return this.http.get<Goal[]>(`${this.apiUrl}/goals`);
   }
+
+  addGoal(goal: Goal): Observable<Goal> {
+    return this.http.post<Goal>(`${this.apiUrl}/goals`, goal);
+  }
+
+  getCategories(): Observable<{id:number, name:string}[]> {
+  return this.http.get<{id:number, name:string}[]>(`${this.apiUrl}/category`);
+}
+
 }
