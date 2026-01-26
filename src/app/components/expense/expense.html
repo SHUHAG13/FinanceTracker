@@ -7,23 +7,18 @@
       <div class="card shadow-lg border-danger">
         <div class="card-body">
           <form (ngSubmit)="onSubmit()">
-            <!-- Amount Input -->
+           
             <div class="mb-4">
               <label for="amount" class="form-label">Amount</label>
-              <input type="number" class="form-control form-control-lg" id="amount" [(ngModel)]="amount" name="amount" required>
+              <input type="number" class="form-control form-control-lg" id="amount" [(ngModel)]="amount" name="amount" required  #amountCtrl="ngModel" min="1">
+              <small class="text-danger" *ngIf="amountCtrl.invalid && amountCtrl.touched">Amount must be grreater than 0</small>
             </div>
 
-            <!-- Category Input -->
-            <div class="mb-4">
-              <label for="category" class="form-label">Category </label>
-              <select class="form-select form-select-lg" id="category" [(ngModel)]="category" name="category">
-                <option value="" disabled selected>Select Category</option>
-                <option value="Rent">Rent</option>
-                <option value="Utilities">Utilities</option>
-                <option value="Business">Groceries</option>
-                <option value="Salary">Entertainment</option>
-                <option value="Freelance">Travel</option>
-              </select>
+            <!-- Category of Expense source -->
+             <div class="mb-4">
+              <label for="category" class="form-label">Expence Cause</label>
+              <input type="text" class="form-control form-control-lg" id="category" [(ngModel)]="category" name="category" required #categoryCtrl="ngModel">
+              <small class="text-danger" *ngif="categoryCtrl.invalid && categoryCtrl.touched"></small>
             </div>
 
             <!-- Submit Button -->

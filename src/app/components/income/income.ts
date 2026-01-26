@@ -20,7 +20,7 @@ export class Income {
   }
   onSubmit() {
   const newTransaction: Transaction = {
-    id: 0, // backend will generate
+    id: 0, 
     type: 'income',
     amount: this.amount,
     category: this.category,

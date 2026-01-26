@@ -1,0 +1,46 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="container mt-2">
+  <h2 class="text-center text-primary">Personal Finance Tracker</h2>
+
+  <div class="row mt-4">
+    <!-- Total Income Card -->
+    <div class="col-md-4">
+      <div class="card shadow-lg border-success">
+        <div class="card-body text-center">
+          <h5 class="card-title text-success">Total Income</h5>
+          <p class="card-text display-4 text-success">{{ totalIncome | currency }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Expenses Card -->
+    <div class="col-md-4">
+      <div class="card shadow-lg border-danger">
+        <div class="card-body text-center">
+          <h5 class="card-title text-danger">Total Expenses</h5>
+          <p class="card-text display-4 text-danger">{{ totalExpenses | currency }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Net Balance Card -->
+    <div class="col-md-4">
+      <div class="card shadow-lg border-info">
+        <div class="card-body text-center">
+          <h5 class="card-title text-info">Net Balance</h5>
+          <p class="card-text display-4 text-info">{{ netBalance | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Income/Expense Buttons -->
+  <div class="row mt-5 text-center">
+    <div class="col-md-6">
+      <a href="/income" class="btn btn-success btn-lg w-100">Add Income</a>
+    </div>
+    <div class="col-md-6">
+      <a href="/expense" class="btn btn-danger btn-lg w-100">Add Expense</a>
+    </div>
+  </div>
+</div>
